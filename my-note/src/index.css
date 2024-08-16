@@ -1,0 +1,285 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+   margin: 0;
+    background: #e0e5ec;
+}
+
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.left-column,
+.right-column {
+  flex: 1; /* Each column takes up 50% of the width */
+  padding: 20px;
+  box-sizing: border-box;
+   height:100vh;
+ overflow: auto;
+}
+
+.left-column {
+  border-right: 1px solid #ccc;
+  flex: 2;
+}
+
+.form-container{
+margin-bottom:20px;
+  background-color:#EBECF0;
+  padding:20px;
+  border-radius:10px;
+  border:2px solid gray;
+}
+
+h1 {
+   color: rgba(10,10,10,0.5); /* colorMain */
+   font-size: 40px;
+   font-weight: bold;
+   font-family: sans-serif;
+   text-transform: uppercase;
+ text-shadow: -3px 3px 8px rgba(0, 0, 0, 0.3), /* brShadow */
+                3px -3px 8px rgba(255, 255, 255, 1); /* tlShadow */
+   position: relative;
+  letter-spacing:2px;
+  text-align:center;
+              -webkit-text-stroke-width: .5px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+border: 0;
+  outline: 0;
+  font-size: 16px;
+  border-radius: 10px; /* 16px * 20 */
+  padding: 16px;
+  background-color: #EBECF0;
+  text-shadow: 1px 1px 0 #FFF;
+   margin-right: 8px; /* 16px / 2 */
+    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+
+}
+
+textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.btn-container, .table-btn-container{
+   display: flex;
+     flex-direction: row;
+     gap: 5rem;
+       justify-content: center;
+}
+
+.table-btn-container
+{
+gap: 1rem;
+}
+
+.submit-btn, .close-btn {
+  width: 20%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+.right-column p {
+  margin-bottom: 10px;
+  color: #555;
+
+}
+
+.data-entry {
+  margin-bottom: 15px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+.button-new-note, .submit-btn, .close-btn, .edit-btn, .delete-btn  {
+border: 0;
+  outline: 0;
+  font-size: 16px;
+  padding: 16px;
+  background-color: #EBECF0;
+  text-shadow: 1px 1px 0 #FFF;
+  border-radius: 8px;
+      color: #61677C;
+      font-weight: bold;
+      box-shadow: -10px -10px 20px #FFF, 10px 10px 30px #BABECC;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+}
+
+.button-new-note {
+ box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+}
+
+.button-new-note:hover {
+ box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+}
+
+.submit-btn{
+color: green;
+}
+.edit-btn{
+color : rgba(61, 10, 245, 0.8);
+}
+.edit-btn, .delete-btn {
+  padding: 6px;
+  background-color: rgba(0,0,0,0);
+      box-shadow: 0px 0px 0px #fff, 0px 0px 0px #BABECC;
+      font-size:20px;
+}
+
+.submit-btn:hover{
+ box-shadow: -2px -2px 5px #42c765, 2px 2px 5px #42c765;
+}
+.delete-btn{
+color: rgba(237, 5, 5, 0.65);
+}
+.close-btn {
+color:red;
+}
+ .close-btn:hover{
+ box-shadow: -2px -2px 5px #f24235, 2px 2px 5px #f24235;
+}
+
+
+@media (min-width: 768px) {
+  .button-new-note {
+    padding: 24px;
+  }
+}
+
+
+.table-text{
+      color: #61677C;
+      cursor: pointer;
+      }
+
+
+table.neumorphic{
+  width: 100%;
+  border-spacing: 0;
+  color: rgba(10,10,10,0.6);
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 19px 19px 26px rgba(163, 177, 198, 1),
+  -9px -9px 26px rgba(255, 255, 255, 1);
+}
+table.neumorphic thead{
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6);
+}
+table.neumorphic th{
+  padding: 12px;
+  letter-spacing:1.5px;
+  background:#dee0e3;
+   text-transform: uppercase;
+
+}
+
+table.neumorphic>tbody>tr>td {
+  padding: 10px;
+  font-size: 14px;
+  position: relative;
+  border: 1px solid rgba(201, 199, 197, 0.8);
+}
+
+table.neumorphic th:nth-child(1) {
+  width: 5%;
+}
+
+table.neumorphic th:nth-child(2) {
+  width: 20%;
+}
+
+table.neumorphic th:nth-child(3) {
+  width: 70%;
+}
+
+table.neumorphic th:nth-child(4) {
+  width: 5%;
+}
+
+table.neumorphic>tbody>tr:hover {
+  padding: 20px;
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+  -9px -9px 16px rgba(255, 255, 255, 0.6);
+}
+
+table.neumorphic tr td:first-child::before {
+  content: "";
+  position: absolute;
+  padding: 7px;
+  top: 0;
+  left: -5000px;
+  width: 10000px;
+  height: 100%;
+  z-index: -10;
+}
+
+table.neumorphic td:hover::after {
+  content: "";
+  position: absolute;
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+  -9px -9px 16px rgba(255, 255, 255, 0.6);
+  left: 0;
+  top: -5000px;
+  height: 10000px;
+  width: 100%;
+  z-index: -1;
+}
+
+
+.fade-in { animation: fadeIn 2s; }
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+@keyframes entryEffect {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.entry-effect {
+  animation: entryEffect 0.5s ease-out;
+}
