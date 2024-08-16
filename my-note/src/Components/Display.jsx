@@ -1,11 +1,20 @@
-import React from 'react';
-import { EditFilled, DeleteFilled } from '@ant-design/icons';
+import React from "react";
+import { EditFilled, DeleteFilled, PlusOutlined } from "@ant-design/icons";
+import { Popconfirm } from "antd";
 
-export default function Display({ submittedData, onEdit, onDelete }) {
-    var i=1;
+export default function Display({
+  submittedData,
+  onEdit,
+  onDelete,
+  onAddBtnClick,
+}) {
+  var i = 1;
   return (
     <>
-      <h1>Submitted Data</h1>
+      <button className="button-new-note" onClick={onAddBtnClick}>
+        <PlusOutlined /> New Note
+      </button>
+      <h1>List Of Notes</h1>
       {submittedData.length > 0 ? (
         <table className="neumorphic">
           <thead>
@@ -17,16 +26,37 @@ export default function Display({ submittedData, onEdit, onDelete }) {
             </tr>
           </thead>
           <tbody className="table-text">
-            {
-                submittedData.map((entry, index) => (
+            {submittedData.map((entry, index) => (
               <tr key={index} className="fade-in">
-                <td >{i++}</td>
+                <td>{i++}</td>
                 <td>{entry.title}</td>
                 <td>{entry.description}</td>
                 <td>
-                    <div className="table-btn-container">
-                  <button className="edit-btn" onClick={() => onEdit(entry.id)}><EditFilled /></button>
-                  <button className="delete-btn" onClick={() => onDelete(entry.id)}><DeleteFilled /></button>
+                  <div className="table-btn-container">
+                    <button
+                      className="edit-btn"
+                      onClick={() => onEdit(entry.id)}
+                    >
+                      <EditFilled />
+                    </button>
+                    <Popconfirm
+                      title="Delete the note"
+                      description="Are you sure to delete this note?"
+                      onConfirm={() => onDelete(entry.id)}
+                      okText="Yes"
+                      cancelText="No"
+                      icon={
+                        <DeleteFilled
+                          style={{
+                            color: 'red',
+                          }}
+                        />
+                      }
+                    >
+                      <button className="delete-btn">
+                        <DeleteFilled />
+                      </button>
+                    </Popconfirm>
                   </div>
                 </td>
               </tr>
@@ -34,7 +64,9 @@ export default function Display({ submittedData, onEdit, onDelete }) {
           </tbody>
         </table>
       ) : (
-        <p>No data submitted yet.</p>
+        <h3>
+          Click on (<PlusOutlined /> New Note ) to add new note.
+        </h3>
       )}
     </>
   );

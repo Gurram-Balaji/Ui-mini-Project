@@ -1,30 +1,31 @@
+import React, { useState } from "react";
+import { CloseOutlined, SendOutlined, FormOutlined } from "@ant-design/icons";
 
-import React, { useState } from 'react';
-import { CloseOutlined, SendOutlined } from '@ant-design/icons';
+const Form = ({ submitForm, id, editDate, onRemove }) => {
+  const [title, setTitle] = useState(editDate ? editDate.title : "");
+  const [description, setDescription] = useState(
+    editDate ? editDate.description : ""
+  );
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    var newEntry = { title, description };
+    if (editDate) {
+      newEntry = { id: editDate.id, ...newEntry };
+    }
+    submitForm(newEntry);
+    onRemove(id);
+    setTitle("");
+    setDescription("");
+  };
 
-const Form = ({submitForm, id, editDate, onRemove}) => {
-const [title, setTitle] = useState(editDate ? editDate.title : "");
-const [description, setDescription] = useState(editDate ? editDate.description : "");
-
-      const handleSubmit = (e) => {
-         e.preventDefault();
-         var newEntry = { title, description };
-         if(editDate){
-            newEntry={id: editDate.id, ...newEntry };
-          }
-         submitForm(newEntry);
-         onRemove(id);
-         setTitle('');
-         setDescription('');
-       };
-
-    return (
-     <div className="form-container">
-        <h1>Add New Note</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>
+  return (
+    <div className="form-container">
+    
+      <h1>Add New Note</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>
             <input
               type="text"
               id="title"
@@ -33,10 +34,10 @@ const [description, setDescription] = useState(editDate ? editDate.description :
               required
               placeholder="Title"
             />
-            </label>
-          </div>
-          <div className="form-group">
-            <label>
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
             <textarea
               id="description"
               value={description}
@@ -44,14 +45,22 @@ const [description, setDescription] = useState(editDate ? editDate.description :
               required
               placeholder="Description"
             ></textarea>
-            </label>
-          </div>
-          <div className="btn-container">
-          <button type="button" onClick={()=>onRemove(id)} className="close-btn"><CloseOutlined /> Close</button>
-          <button type="submit" className="submit-btn"><SendOutlined /> Save</button>
-          </div>
-        </form>
-      </div>
+          </label>
+        </div>
+        <div className="btn-container">
+          <button
+            type="button"
+            onClick={() => onRemove(id)}
+            className="close-btn"
+          >
+            <CloseOutlined /> Close
+          </button>
+          <button type="submit" className="submit-btn">
+           {editDate ? (<><FormOutlined /> Update</> ):(<><SendOutlined /> Save </>)}
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 
