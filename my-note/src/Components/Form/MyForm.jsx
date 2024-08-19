@@ -21,8 +21,7 @@ const Form = ({ submitForm, id, editDate, onRemove }) => {
 
   return (
     <div className="form-container">
-    
-      <h1>Add New Note</h1>
+      <h1> {editDate ? "Edit" : "Add"} New Note</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>
@@ -56,7 +55,15 @@ const Form = ({ submitForm, id, editDate, onRemove }) => {
             <CloseOutlined /> Close
           </button>
           <button type="submit" className="submit-btn">
-           {editDate ? (<><FormOutlined /> Update</> ):(<><SendOutlined /> Save </>)}
+            {editDate ? (
+              <>
+                <FormOutlined /> Update
+              </>
+            ) : (
+              <>
+                <SendOutlined /> Save{" "}
+              </>
+            )}
           </button>
         </div>
       </form>

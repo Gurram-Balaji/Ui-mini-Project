@@ -2,7 +2,7 @@ import React from "react";
 import { EditFilled, DeleteFilled, PlusOutlined } from "@ant-design/icons";
 import { Popconfirm } from "antd";
 
-export default function Display({
+export default function ListOfNodes({
   submittedData,
   onEdit,
   onDelete,

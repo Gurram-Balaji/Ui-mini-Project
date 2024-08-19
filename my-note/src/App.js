@@ -1,5 +1,5 @@
-import Form from "./Components/MyForm.jsx";
-import Display from "./Components/Display.jsx";
+import Form from "./Components/Form/MyForm.jsx";
+import ListOfNodes from "./Components/ListOfNodes/ListOfNodes.jsx";
 import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -84,7 +84,7 @@ function App() {
   return (
     <div className="container">
       <div className="left-column">
-        <Display
+        <ListOfNodes
           submittedData={submittedData}
           onEdit={onEditBtnClick}
           onDelete={onDeleteBtnClick}
