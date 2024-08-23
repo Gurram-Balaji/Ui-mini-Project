@@ -1,5 +1,5 @@
 import Form from "./Components/Form/MyForm.jsx";
-import ListOfNotes from "./Components/ListOfNotes/ListOfNots.jsx";
+import ListOfNotes from "./Components/ListOfNotes/ListOfNotes.jsx";
 import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
